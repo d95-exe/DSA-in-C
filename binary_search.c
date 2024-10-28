@@ -11,12 +11,11 @@
 int arr[MAX], target, size;
 
 void binary_search(int x){
-    int beg = 0, end = size-1;
+    int start, beg = 0, end = size-1;
     int ispresent = 0;
     while(beg <= end){
-        int start = (beg + end) / 2;
+        start = (beg + end) / 2;
         if(arr[start] == x){
-            printf("\nTarget located at index %d", start);
             ispresent = 1;
             break;
         }
@@ -27,7 +26,9 @@ void binary_search(int x){
             end = start - 1;
         }
     }
-    if(!ispresent){
+    if(ispresent){
+        printf("\nTarget located at index %d", start);
+    }else{
         printf("\nTarget not found in array");
     }
 }
